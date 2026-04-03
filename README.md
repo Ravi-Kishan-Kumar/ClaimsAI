@@ -107,5 +107,5 @@ The prototype features a secure login portal to route users to the correct dashb
 
 ## 👥 Team
 
-Ravi Kishan Kumar
-Vikas Lalwani
+* 1. Ravi Kishan Kumar
+* 2. Vikas Lalwani
