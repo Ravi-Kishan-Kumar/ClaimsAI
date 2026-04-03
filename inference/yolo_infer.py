@@ -10,7 +10,7 @@ from PIL import Image
 import os
 
 class YOLODamageDetector:
-    def __init__(self, model_path: str = "models/best (low mAP).pt"):
+    def __init__(self, model_path: str = "models/best.pt"):
         if not os.path.exists(model_path):
             raise FileNotFoundError(f"Model not found: {model_path}")
 

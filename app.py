@@ -24,7 +24,7 @@ import shutil
 from app.main import InsuranceClaimAssessor
 
 # Model paths (must match files in `models/`)
-YOLO_MODEL = "models/best (low mAP).pt"
+YOLO_MODEL = "models/best.pt"
 SEVERITY_MODEL = "models/severity_model.pth"
 
 # --- Page layout ---

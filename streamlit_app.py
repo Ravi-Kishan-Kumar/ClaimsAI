@@ -108,7 +108,7 @@ def auth_page():
 def main_dashboard():
     try:
         InsuranceClaimAssessor = _load_assessor()
-        assessor = InsuranceClaimAssessor("models/best (low mAP).pt", "models/severity_model.pth")
+        assessor = InsuranceClaimAssessor("models/best.pt", "models/severity_model.pth")
     except Exception as e:
         st.error(f"Backend Error: {e}")
         st.stop()

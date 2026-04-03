@@ -3,13 +3,12 @@
 An automated, edge-capable vehicle insurance claim processing system. This project utilizes a **Late-Fusion Hybrid Architecture**, combining the perceptive power of Deep Learning (YOLOv8 & ResNet18) with the deterministic safety of a Rule-Based Business Engine (CPIBP) to automate damage assessment and prevent fraud.
 
 ## 🌟 Key Features
+* **Dual-AI Perception:** Uses **YOLOv8** for instance segmentation and **ResNet18** for global severity classification.
+* **CPIBP Rule Engine:** A deterministic logic layer that fuses AI probabilities to make safe, explainable business decisions.
+* **Integrity & Fraud Module:** Analyzes EXIF metadata to flag digitally manipulated photos.
+* **Role-Based Portals:** Features secure dashboards for both Customers and Insurance Surveyors.
 
-* **Dual-AI Perception:** Uses **YOLOv8** for instance segmentation (detecting specific dents/scratches) and **ResNet18** for global severity classification (Minor, Moderate, Severe).
-* **CPIBP Rule Engine:** (Confidence-Prioritized Inference with Business Policies). A deterministic logic layer that fuses AI probabilities to make safe, explainable business decisions (Auto-Approve, Manual Review, or Reject).
-* **Integrity & Fraud Module:** Extracts and analyzes raw EXIF metadata (Software signatures, Timestamps) to flag digitally manipulated or recycled photos before processing.
-* **Role-Based Portals (Streamlit):**
-  * **User Dashboard:** For evidence upload and instant provisional assessment.
-  * **Surveyor Dashboard:** A dedicated queue for manual overrides, complex claim reviews, and global audit history.
+---
 
 ## 📐 System Architecture
 
@@ -37,75 +36,71 @@ graph TD
     Rule --> Auto[Auto-Approve]:::decision
     Rule --> Manual[Manual Review]:::decision
     Rule --> Reject[Reject Claim]:::decision
+```
+## 📁 Project Structure
 
-📁 Project Structure
-
-insurance-claim-ai/
+```text
+INSURANCE-CLAIM-AI/
 ├── app/
 │   └── main.py                  # Core backend pipeline execution
 ├── data/
-│   └── fraud_store.json         # Local DB for fraud detection signatures
+│   ├── test_images/             # Sample images for testing
+│   └── fraud_store.json         # Local signature database
 ├── fraud/
-│   └── fraud_detection.py       # EXIF extraction and metadata analysis
+│   └── fraud_detection.py       # EXIF & Metadata analysis logic
 ├── inference/
-│   ├── severity_infer.py        # ResNet18 execution logic
-│   └── yolo_infer.py            # YOLOv8 execution and bounding box logic
-├── models/
-│   ├── best (low mAP).pt        # YOLOv8 weights (Requires manual download)
-│   └── severity_model.pth       # ResNet18 weights (Requires manual download)
+│   ├── severity_infer.py        # ResNet18 severity classification
+│   └── yolo_infer.py            # YOLOv8 damage localization
+├── models/                      # (Requires Manual Setup)
+│   ├── best.pt                  # YOLOv8 trained weights
+│   └── severity_model.pth       # ResNet18 trained weights
 ├── rules/
-│   └── cpibp_rules.py           # Business logic and decision fusion
-├── streamlit_app.py             # Main UI with Secure Login & Dashboards
-└── requirements.txt             # Python dependencies
+│   └── cpibp_rules.py           # CPIBP decision logic engine
+├── .gitignore                   # Files to exclude from GitHub
+├── requirements.txt             # Python dependencies
+└── streamlit_app.py             # Main Production UI & Portal
 
-⚙️ Installation & Local Setup
-Important Note regarding AI Models: Due to GitHub file size limits, the trained weights (.pt and .pth files) are not included in this repository. You must place your trained models inside the models/ directory before running the application.
+```
 
-Clone the repository:
+## ⚙️ Installation & Local Setup
 
-Bash
+> **⚠️ Note on Weights:** Due to file size limits, the trained weights are excluded. Place them in the `models/` directory before running.
+
+### 1. Clone the Repository
+```bash
 git clone [https://github.com/Ravi-Kishan-Kumar/ClaimsAI.git](https://github.com/Ravi-Kishan-Kumar/ClaimsAI.git)
 cd ClaimsAI
+```
 
-
-Create a virtual environment (Recommended):
-
-Bash
+### 2. Setup Virtual Environment
+```bash
 python -m venv venv
-# On Windows:
+# Windows:
 .\venv\Scripts\activate
-# On Mac/Linux:
+# Mac/Linux:
 source venv/bin/activate
-
-
-Install dependencies:
-
-Bash
+```
+### 3. Install Dependencies & Run
+```bash
 pip install -r requirements.txt
-Run the Application:
-
-Bash
 streamlit run streamlit_app.py
-🔐 Demo Login Credentials
+```
+
+---
+
+## 🔐 Demo Login Credentials
+
 The prototype features a secure login portal to route users to the correct dashboard.
 
-Customer / User Portal:
+| Role | Username | Password |
+| :--- | :--- | :--- |
+| **Customer / User** | `user1` | `123` |
+| **Admin / Surveyor** | `surveyor` | `admin` |
 
-Username: user1
+---
 
-Password: 123
+## 🚀 Future Scope
 
-Admin / Surveyor Portal:
-
-Username: surveyor
-
-Password: admin
-
-
-🚀 Future Scope
-
-Mobile App Porting: Transitioning the Streamlit web app to a native mobile application for on-site accident reporting.
-
-3D Damage Reconstruction: Upgrading from 2D image analysis to 360-degree video mesh generation for accurate depth and volume estimation.
-
-Automated Cost Estimation: Linking detected part damages (e.g., "Bumper Dent") directly to an OEM parts and labor database for end-to-end financial settlement.
+* **Mobile App Porting:** Transitioning the Streamlit web app to a native mobile application for on-site accident reporting.
+* **3D Damage Reconstruction:** Upgrading from 2D image analysis to 360-degree video mesh generation for accurate depth estimation.
+* **Automated Cost Estimation:** Linking detected part damages directly to an OEM parts and labor database for end-to-end financial settlement.

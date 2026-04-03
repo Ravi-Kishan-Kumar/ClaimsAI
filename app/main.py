@@ -290,7 +290,7 @@ def main():
     Optional: logic to run this script directly from terminal for testing.
     """
     # Configuration
-    yolo_model = "models/best (low mAP).pt"
+    yolo_model = "models/best.pt"
     severity_model = "models/severity_model.pth"
     input_dir = "data/test_images"
     
