@@ -104,3 +104,8 @@ The prototype features a secure login portal to route users to the correct dashb
 * **Mobile App Porting:** Transitioning the Streamlit web app to a native mobile application for on-site accident reporting.
 * **3D Damage Reconstruction:** Upgrading from 2D image analysis to 360-degree video mesh generation for accurate depth estimation.
 * **Automated Cost Estimation:** Linking detected part damages directly to an OEM parts and labor database for end-to-end financial settlement.
+
+## 👥 Team
+
+Ravi Kishan Kumar
+Vikas Lalwani
