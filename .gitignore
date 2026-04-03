@@ -1,0 +1,18 @@
+# Ignore AI Models (Too large for GitHub)
+models/*.pt
+models/*.pth
+
+# Ignore Virtual Environments
+venv/
+env/
+
+# Ignore Python Caches
+__pycache__/
+**/__pycache__/
+*.pyc
+
+# Ignore YOLO Training Logs/Outputs
+runs/
+
+# Ignore Local Database/User Files (Optional, but good for privacy)
+data/fraud_store.json
