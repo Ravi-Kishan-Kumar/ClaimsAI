@@ -16,11 +16,11 @@ The system operates on an offline-first, parallel inference pipeline:
 
 ```mermaid
 graph TD
-    classDef frontend fill:#e1f5fe,stroke:#0277bd,stroke-width:2px;
-    classDef process fill:#fff9c4,stroke:#fbc02d,stroke-width:2px;
-    classDef ai fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px;
-    classDef logic fill:#f3e5f5,stroke:#7b1fa2,stroke-width:2px;
-    classDef decision fill:#ffccbc,stroke:#d84315,stroke-width:2px,stroke-dasharray: 5 5;
+    classDef frontend fill:#e1f5fe,stroke:#0277bd,stroke-width:2px,color:#000,font-weight:bold;
+    classDef process fill:#fff9c4,stroke:#fbc02d,stroke-width:2px,color:#000,font-weight:bold;
+    classDef ai fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,color:#000,font-weight:bold;
+    classDef logic fill:#f3e5f5,stroke:#7b1fa2,stroke-width:2px,color:#000,font-weight:bold;
+    classDef decision fill:#ffccbc,stroke:#d84315,stroke-width:2px,stroke-dasharray: 5 5,color:#000,font-weight:bold;
 
     User[User Upload]:::frontend --> Pre[Preprocessing & PIL]:::process
     Pre --> EXIF[EXIF Integrity Check]:::process
